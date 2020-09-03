@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Signing In {% endblock title %}
+
+
+{% block content %}
+<div class = 'card'>
+  <h5 class = 'card-header'> Signing in </h5>
+    <div class = 'card-body'>
+      <p class = 'card-text'>
+          <form action = "{% url 'signin' %}" method = 'POST'>
+            {% csrf_token %}
+            {{form|crispy}}
+
+            <input type='submit' value = 'sign in'>
+
+          </form>
+      </p>
+    </div>
+</div>
+{% endblock content %}
